@@ -30,7 +30,10 @@ public class AppMain {
         System.out.println(smartphone1.getContactById(2));
         System.out.println(smartphone1.getContactByName("Sigrid"));
 
-        smartphone1.removeContactById(1);
+        smartphone1.removeContactByIndex(1);
+        System.out.println(smartphone1.toString());
+
+        smartphone1.removeContactByName("Florian");
         System.out.println(smartphone1.toString());
 
     }

@@ -84,7 +84,7 @@ public class Smartphone implements GPS, Radio {
       return contactInSearch;
      }
 
-    public void removeContactById(int index) {
+    public void removeContactByIndex(int index) {
         this.contacts[index] = null;
         int newIndex = 0;
         Contact[] newArr = Arrays.copyOf(this.contacts, this.contacts.length - 1);
@@ -95,6 +95,26 @@ public class Smartphone implements GPS, Radio {
             }
         }
         this.contacts = newArr;
+    }
+
+    public void removeContactByName (String name){
+
+        for (int i = 0; i < this.contacts.length; i++){
+            if (this.contacts[i].name == name){
+                this.contacts[i] = null;
+            }
+        }
+        //copied codeblock from removeById, not really best practice, i know...
+        int newIndex = 0;
+        Contact[] newArr = Arrays.copyOf(this.contacts, this.contacts.length - 1);
+        for (int i = 0; i < this.contacts.length; i++){
+            if (this.contacts[i] != null){
+                newArr[newIndex] = this.contacts[i];
+                newIndex++;
+            }
+        }
+        this.contacts = newArr;
+
     }
 
 }
